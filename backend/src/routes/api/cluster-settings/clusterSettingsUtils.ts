@@ -82,9 +82,7 @@ export const getClusterSettings = async (
       userTrackingEnabled: segmentEnabledRes.body.data.segmentKeyEnabled === 'true',
     };
   } catch (e) {
-    if (e.response?.statusCode !== 404) {
-      fastify.log.error('Error retrieving cluster settings: ' + e.toString());
-    }
+    fastify.log.error('Error retrieving cluster settings: ' + e.toString());
     return 'Unable to retrieve cluster settings.';
   }
 };
